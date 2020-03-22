@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!-- vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- custom styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" class="app-wrapper">
+        <div class="todo-container d-flex-column">
+            <h3 class="text-courgette text-center">Tasker App</h3>
+            <div class="todo-wrapper">
+                <div class="todo-input-wrapper d-flex-between">
+                    <input type="text" placeholder="Enter Activity" v-model.trim="newTodos" class="task-input">
+                    <button class="btn-circle bg-teal" @click="addTodo"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="todo-output-wrapper">
+                    <h4 class="todo-title text-left text-courgette">Activities</h4>
+                    <div class="task d-flex" v-for="(item, index) in todoItems" :key="index">
+                        <div class="task-note">
+                            {{item}}
+                        </div>
+                        <i class="fas fa-pen-fancy edit" @click='editTodo(item)'></i>
+                        <i class="fas fa-trash-alt thrash" @click="removeTodo(item)"></i>
+                    </div>
+                    <button class="btn-teal" @click="clearTodo">Clear Activities</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
